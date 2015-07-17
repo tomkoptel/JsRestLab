@@ -1,5 +1,7 @@
 package com.example.jasper.sdklab.v1;
 
+import com.example.jasper.sdklab.v1.common.RestCall;
+
 import rx.Observable;
 
 /**

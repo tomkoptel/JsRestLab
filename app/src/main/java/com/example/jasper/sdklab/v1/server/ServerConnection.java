@@ -1,6 +1,7 @@
 package com.example.jasper.sdklab.v1.server;
 
-import com.example.jasper.sdklab.v1.RestCall;
+
+import com.example.jasper.sdklab.v1.common.RestCall;
 
 import rx.Observable;
 
@@ -9,7 +10,7 @@ import rx.Observable;
  * @since 2.1
  */
 public class ServerConnection {
-    public static Request connect(String baseUrl) {
+    public static Request connect(ServerConfiguration serverConfiguration) {
         throw new UnsupportedOperationException();
     }
 

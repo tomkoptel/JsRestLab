@@ -1,15 +1,28 @@
 package com.example.jasper.sdklab.v1;
 
+import com.example.jasper.sdklab.v1.common.RestCall;
+import com.example.jasper.sdklab.v1.server.ServerConfiguration;
+import com.example.jasper.sdklab.v1.server.ServerConnection;
+
 /**
  * @author Tom Koptel
  * @since 2.1
  */
-class ReportClient {
+public class ReportClient {
     public TotalPagesRequestTask requestTotalPages() {
         throw new UnsupportedOperationException();
     }
 
-    public PageExportRequestTask requestExport(ReportExportConfiguration reportExportConfiguration, ExportPageRange pageRange) {
+    public RestCall<ExportResult> requestExport(ExportPageRange pageRange) {
         throw new UnsupportedOperationException();
     }
+
+    public static ReportClient create(ServerConfiguration serverConfiguration, ReportExecutionConfiguration reportConfiguration) {
+        throw new UnsupportedOperationException();
+    }
+
+    public static ReportClient create(ServerConnection serverConnection, ReportExecutionConfiguration reportConfiguration) {
+        throw new UnsupportedOperationException();
+    }
+
 }

@@ -8,7 +8,7 @@ import java.util.Collection;
  * @author Tom Koptel
  * @since 2.1
  */
-class ReportExecutionConfiguration {
+public class ReportExecutionConfiguration {
     private final Configuration configuration;
 
     public ReportExecutionConfiguration(Configuration configuration) {

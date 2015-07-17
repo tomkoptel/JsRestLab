@@ -1,5 +1,6 @@
 package com.example.jasper.sdklab.v1;
 
+import com.example.jasper.sdklab.v1.common.RestCall;
 import com.example.jasper.sdklab.v1.server.ServerConfiguration;
 import com.example.jasper.sdklab.v1.server.ServerConnection;
 import com.jaspersoft.android.sdk.client.oxm.report.ReportParameter;
@@ -48,7 +49,7 @@ public class ReportClientRestFlowTest {
                 .withOrganization(organization)
                 .withPassword(password);
 
-        ServerConnection serverConnection = ServerConnection.connect(baseUrl).asBlocking();
+        ServerConnection serverConnection = ServerConnection.connect(serverConfiguration).asBlocking();
 
         ReportExecutionConfiguration configuration =
                 ReportExecutionConfiguration.asyncConfiguration(reportUri);
@@ -63,7 +64,7 @@ public class ReportClientRestFlowTest {
         int totalPages = pagesRequestTask.asBlocking();
 
         ReportExportConfiguration reportExportConfiguration = ReportExportConfiguration.asPDF(configuration);
-        PageExportRequestTask pageExportRequestTask = reportClient.requestExport(reportExportConfiguration, pageRange);
+        RestCall<ExportResult> pageExportRequestTask = reportClient.requestExport(pageRange);
         ExportResult exportResult = pageExportRequestTask.asBlocking();
     }
 }

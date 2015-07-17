@@ -1,5 +1,6 @@
 package com.example.jasper.sdklab.v1;
 
+import com.example.jasper.sdklab.v1.server.ServerConfiguration;
 import com.example.jasper.sdklab.v1.server.ServerConnection;
 
 /**
@@ -13,6 +14,11 @@ class ReportExecutionSession {
 
     public static ReportExecutionSession createSession(
             ServerConnection serverConnection, ReportExecutionConfiguration configuration) {
+        throw new UnsupportedOperationException();
+    }
+
+    public static ReportExecutionSession createSession(
+            ServerConfiguration serverConfiguration, ReportExecutionConfiguration configuration) {
         throw new UnsupportedOperationException();
     }
 }
