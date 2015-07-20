@@ -64,7 +64,7 @@ public class ReportClientRestFlowTest {
         int totalPages = pagesRequestTask.asBlocking();
 
         ReportExportConfiguration reportExportConfiguration = ReportExportConfiguration.asPDF(configuration);
-        RestCall<ExportResult> pageExportRequestTask = reportClient.requestExport(pageRange);
-        ExportResult exportResult = pageExportRequestTask.asBlocking();
+        RestCall<ParcelFileExportResult> pageExportRequestTask = reportClient.requestExport(pageRange);
+        ParcelFileExportResult exportResult = pageExportRequestTask.asBlocking();
     }
 }

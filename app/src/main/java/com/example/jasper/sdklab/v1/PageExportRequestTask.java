@@ -8,14 +8,14 @@ import rx.Observable;
  * @author Tom Koptel
  * @since 2.1
  */
-class PageExportRequestTask implements RestCall<ExportResult> {
+class PageExportRequestTask implements RestCall<ParcelFileExportResult> {
     @Override
-    public ExportResult asBlocking() {
+    public ParcelFileExportResult asBlocking() {
         return null;
     }
 
     @Override
-    public Observable<ExportResult> asAsync() {
+    public Observable<ParcelFileExportResult> asAsync() {
         return null;
     }
 }

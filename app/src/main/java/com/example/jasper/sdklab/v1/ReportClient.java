@@ -13,7 +13,7 @@ public class ReportClient {
         throw new UnsupportedOperationException();
     }
 
-    public RestCall<ExportResult> requestExport(ExportPageRange pageRange) {
+    public RestCall<ParcelFileExportResult> requestExport(ExportPageRange pageRange) {
         throw new UnsupportedOperationException();
     }
 
