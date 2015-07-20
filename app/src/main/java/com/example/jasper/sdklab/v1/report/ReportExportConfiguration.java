@@ -1,6 +1,4 @@
-package com.example.jasper.sdklab.v1;
-
-import com.example.jasper.sdklab.v1.report.ReportExecutionConfiguration;
+package com.example.jasper.sdklab.v1.report;
 
 /**
  * @author Tom Koptel

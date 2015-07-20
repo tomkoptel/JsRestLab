@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
 
 import com.example.jasper.sdklab.v1.report.export.ExportPageRange;
-import com.example.jasper.sdklab.v1.ParcelFileExportResult;
-import com.example.jasper.sdklab.v1.ReportClient;
+import com.example.jasper.sdklab.v1.report.ParcelFileExportResult;
+import com.example.jasper.sdklab.v1.report.ReportClient;
 import com.example.jasper.sdklab.v1.report.ReportExecutionConfiguration;
 import com.example.jasper.sdklab.v1.server.ServerConfiguration;
 

@@ -1,4 +1,4 @@
-package com.example.jasper.sdklab.v1;
+package com.example.jasper.sdklab.v1.report;
 
 /**
  * @author Tom Koptel

@@ -2,7 +2,7 @@ package com.example.jasper.sdklab;
 
 import android.os.ParcelFileDescriptor;
 
-import com.example.jasper.sdklab.v1.ExportResult;
+import com.example.jasper.sdklab.v1.report.export.ExportResult;
 
 /**
  * @author Tom Koptel
