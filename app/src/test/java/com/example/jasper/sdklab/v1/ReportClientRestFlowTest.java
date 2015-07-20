@@ -1,9 +1,9 @@
 package com.example.jasper.sdklab.v1;
 
 import com.example.jasper.sdklab.v1.common.RestCall;
+import com.example.jasper.sdklab.v1.report.ReportExecutionConfiguration;
 import com.example.jasper.sdklab.v1.server.ServerConfiguration;
 import com.example.jasper.sdklab.v1.server.ServerConnection;
-import com.jaspersoft.android.sdk.client.oxm.report.ReportParameter;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +11,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.io.FileDescriptor;
-import java.util.Collection;
+import java.util.Map;
 
 
 /**
@@ -32,7 +32,7 @@ public class ReportClientRestFlowTest {
     @Mock
     FileDescriptor target;
     @Mock
-    Collection<ReportParameter> params;
+    Map<String, String> params;
     @Mock
     ExportPageRange pageRange;
 
@@ -52,7 +52,7 @@ public class ReportClientRestFlowTest {
         ServerConnection serverConnection = ServerConnection.connect(serverConfiguration).asBlocking();
 
         ReportExecutionConfiguration configuration =
-                ReportExecutionConfiguration.asyncConfiguration(reportUri);
+                ReportExecutionConfiguration.newInstance(reportUri);
         configuration.addReportParameters(params);
 
         ReportExecutionSession session = ReportExecutionSession

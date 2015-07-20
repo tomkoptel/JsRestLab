@@ -1,6 +1,7 @@
 package com.example.jasper.sdklab.v1;
 
 import com.example.jasper.sdklab.v1.common.RestCall;
+import com.example.jasper.sdklab.v1.report.ReportExecutionConfiguration;
 import com.example.jasper.sdklab.v1.server.ServerConfiguration;
 import com.example.jasper.sdklab.v1.server.ServerConnection;
 

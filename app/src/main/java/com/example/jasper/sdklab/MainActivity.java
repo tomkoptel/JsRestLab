@@ -8,7 +8,7 @@ import android.webkit.WebView;
 import com.example.jasper.sdklab.v1.ExportPageRange;
 import com.example.jasper.sdklab.v1.ParcelFileExportResult;
 import com.example.jasper.sdklab.v1.ReportClient;
-import com.example.jasper.sdklab.v1.ReportExecutionConfiguration;
+import com.example.jasper.sdklab.v1.report.ReportExecutionConfiguration;
 import com.example.jasper.sdklab.v1.server.ServerConfiguration;
 
 import rx.functions.Action1;
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         String reportUri = "/public/Samples/Reports/AllAccounts";
         ReportExecutionConfiguration reportConfiguration =
-                ReportExecutionConfiguration.asyncConfiguration(reportUri);
+                ReportExecutionConfiguration.newInstance(reportUri);
 
         ExportPageRange range = ExportPageRange.createForSinglePage(5);
         ReportClient reportClient = ReportClient.create(serverConfiguration, reportConfiguration);
