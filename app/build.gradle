@@ -24,6 +24,20 @@ android {
     dexOptions {
         javaMaxHeapSize "2048M"
     }
+
+    packagingOptions {
+        exclude 'META-INF/ASL2.0'
+        exclude 'asm-license.txt'
+        exclude 'NOTICE'
+        exclude 'LICENSE'
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+    }
 }
 
 ext.jasperSdkVersion = '1.10-SNAPSHOT'
