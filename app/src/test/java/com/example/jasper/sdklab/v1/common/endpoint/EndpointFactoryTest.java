@@ -18,6 +18,8 @@ import static org.junit.Assert.assertThat;
 public class EndpointFactoryTest {
     @Mock
     ServerConfiguration mServerConfiguration;
+    @Mock
+    Endpoint mBaseEndpoint;
 
     @Before
     public void setup() {
@@ -31,7 +33,18 @@ public class EndpointFactoryTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void shouldNotAcceptNullValues() {
-        Endpoint endpoint = EndpointFactory.createRestV2Endpoint(mServerConfiguration);
+    public void shouldNotAcceptNullValueForRestV2Endpoint() {
+        Endpoint endpoint = EndpointFactory.createRestV2Endpoint(null);
+    }
+
+    @Test
+    public void shouldCreateResourcesEndpoint() {
+        Endpoint endpoint = EndpointFactory.createResourcesEndpoint(mBaseEndpoint);
+        assertThat(endpoint, is(notNullValue()));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldNotAcceptNullValueForResourcesEndpoint() {
+        Endpoint endpoint = EndpointFactory.createResourcesEndpoint(null);
     }
 }
