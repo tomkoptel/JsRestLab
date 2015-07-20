@@ -16,7 +16,7 @@ import java.util.Collection;
 
 @RunWith(ParameterizedRobolectricTestRunner.class)
 @Config(manifest = Config.NONE)
-public class ServerConfigurationParamsTest {
+public class ServerExecutionConfigurationParamsTest {
 
     private final String mEmpty;
 
@@ -29,15 +29,15 @@ public class ServerConfigurationParamsTest {
         });
     }
 
-    public ServerConfigurationParamsTest(String injected, String message) {
+    public ServerExecutionConfigurationParamsTest(String injected, String message) {
         mEmpty = injected;
     }
 
-    private ServerConfiguration configuration;
+    private ServerExecutionConfiguration configuration;
 
     @Before
     public void setup() {
-        configuration = ServerConfiguration.newInstance();
+        configuration = ServerExecutionConfiguration.newInstance();
     }
 
     @Test(expected = IllegalArgumentException.class)

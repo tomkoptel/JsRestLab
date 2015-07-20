@@ -1,9 +1,9 @@
 package com.example.jasper.sdklab.v1.report;
 
-import com.example.jasper.sdklab.v1.common.RestCall;
 import com.example.jasper.sdklab.v1.report.export.ExportPageRange;
 import com.example.jasper.sdklab.v1.server.ServerConfiguration;
 import com.example.jasper.sdklab.v1.server.ServerConnection;
+import com.example.jasper.sdklab.v1.server.ServerExecutionConfiguration;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -43,7 +43,8 @@ public class ReportClientRestFlowTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void test() {
-        ServerConfiguration serverConfiguration = ServerConfiguration.newInstance()
+        ServerConfiguration serverConfiguration =
+                ServerExecutionConfiguration.newInstance()
                 .withBaseUrl(baseUrl)
                 .withUserId(userId)
                 .withOrganization(organization)
@@ -57,14 +58,14 @@ public class ReportClientRestFlowTest {
 
         ReportExecutionSession session = ReportExecutionSession
                 .createSession(serverConnection, configuration);
-        ReportExecutionTask executionTask = session.requestReportClient();
-        ReportClient reportClient = executionTask.asBlocking();
+//        ReportExecutionTask executionTask = session.requestReportClient();
+//        ReportClient reportClient = executionTask.asBlocking();
 
-        TotalPagesRequestTask pagesRequestTask = reportClient.requestTotalPages();
-        int totalPages = pagesRequestTask.asBlocking();
+//        TotalPagesRequestTask pagesRequestTask = reportClient.requestTotalPages();
+//        int totalPages = pagesRequestTask.asBlocking();
 
-        ReportExportConfiguration reportExportConfiguration = ReportExportConfiguration.asPDF(configuration);
-        RestCall<ParcelFileExportResult> pageExportRequestTask = reportClient.requestExport(pageRange);
-        ParcelFileExportResult exportResult = pageExportRequestTask.asBlocking();
+//        ReportExportConfiguration reportExportConfiguration = ReportExportConfiguration.asPDF(configuration);
+//        RestCall<ParcelFileExportResult> pageExportRequestTask = reportClient.requestExport(pageRange);
+//        ParcelFileExportResult exportResult = pageExportRequestTask.asBlocking();
     }
 }

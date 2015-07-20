@@ -5,11 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
 
-import com.example.jasper.sdklab.v1.report.export.ExportPageRange;
-import com.example.jasper.sdklab.v1.report.ParcelFileExportResult;
-import com.example.jasper.sdklab.v1.report.ReportClient;
 import com.example.jasper.sdklab.v1.report.ReportExecutionConfiguration;
+import com.example.jasper.sdklab.v1.report.export.ExportPageRange;
 import com.example.jasper.sdklab.v1.server.ServerConfiguration;
+import com.example.jasper.sdklab.v1.server.ServerExecutionConfiguration;
 
 import rx.functions.Action1;
 
@@ -36,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         webView = (WebView) findViewById(R.id.webView);
 
-        ServerConfiguration serverConfiguration = ServerConfiguration.newInstance()
+        ServerConfiguration serverConfiguration =
+                ServerExecutionConfiguration.newInstance()
                 .withBaseUrl("http://192.168.88.55:8085/jasperserver-pro-61")
                 .withOrganization("")
                 .withPassword("superuser")
@@ -47,13 +47,13 @@ public class MainActivity extends AppCompatActivity {
                 ReportExecutionConfiguration.newInstance(reportUri);
 
         ExportPageRange range = ExportPageRange.createForSinglePage(5);
-        ReportClient reportClient = ReportClient.create(serverConfiguration, reportConfiguration);
-        reportClient.requestExport(range).asAsync().subscribe(new Action1<ParcelFileExportResult>() {
-            @Override
-            public void call(ParcelFileExportResult export) {
-                StringExportResult exportResult = new StringExportResult(export);
-                webView.loadDataWithBaseURL(null, exportResult.getExport(), "text/html", "utf-8", null);
-            }
-        }, errorHandler);
+//        ReportClient reportClient = ReportClient.create(serverConfiguration, reportConfiguration);
+//        reportClient.requestExport(range).asAsync().subscribe(new Action1<ParcelFileExportResult>() {
+//            @Override
+//            public void call(ParcelFileExportResult export) {
+//                StringExportResult exportResult = new StringExportResult(export);
+//                webView.loadDataWithBaseURL(null, exportResult.getExport(), "text/html", "utf-8", null);
+//            }
+//        }, errorHandler);
     }
 }

@@ -20,20 +20,20 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = Config.NONE, shadows = {ShadowParcel.class})
-public class ServerConfigurationParcelableTest {
+public class ServerExecutionConfigurationParcelableTest {
 
-    private ServerConfiguration configuration;
+    private ServerExecutionConfiguration configuration;
 
     @Before
     public void setup() {
-        configuration = ServerConfiguration.newInstance();
+        configuration = ServerExecutionConfiguration.newInstance();
     }
 
     @Test
     public void urlShouldBeParcelable() {
         String url = "http://localhost/";
         configuration.withBaseUrl(url);
-        ServerConfiguration afterConfig = serializeConfig();
+        ServerExecutionConfiguration afterConfig = serializeConfig();
         assertThat(afterConfig.getBaseUrl(), is(url));
     }
 
@@ -41,7 +41,7 @@ public class ServerConfigurationParcelableTest {
     public void userIdShouldBeParcelable() {
         String userId = "some_user";
         configuration.withUserId(userId);
-        ServerConfiguration afterConfig = serializeConfig();
+        ServerExecutionConfiguration afterConfig = serializeConfig();
         assertThat(afterConfig.getUserId(), is(userId));
     }
 
@@ -49,7 +49,7 @@ public class ServerConfigurationParcelableTest {
     public void organizationShouldBeParcelable() {
         String organization = "organization";
         configuration.withOrganization(organization);
-        ServerConfiguration afterConfig = serializeConfig();
+        ServerExecutionConfiguration afterConfig = serializeConfig();
         assertThat(afterConfig.getOrganization(), is(organization));
     }
 
@@ -57,22 +57,22 @@ public class ServerConfigurationParcelableTest {
     public void passwordShouldBeParcelable() {
         String password = "pass";
         configuration.withPassword(password);
-        ServerConfiguration afterConfig = serializeConfig();
+        ServerExecutionConfiguration afterConfig = serializeConfig();
         assertThat(afterConfig.getPassword(), is(password));
     }
 
-    private ServerConfiguration serializeConfig() {
+    private ServerExecutionConfiguration serializeConfig() {
         Parcel parcel = Parcel.obtain();
         parcel.writeParcelable(configuration, 0);
         parcel.setDataPosition(0);
 
-        Parcelable config = parcel.readParcelable(ServerConfiguration.class.getClassLoader());
+        Parcelable config = parcel.readParcelable(ServerExecutionConfiguration.class.getClassLoader());
         if (config == null) {
             throw new NullPointerException("Failed to read config from parcel");
         }
         parcel.recycle();
 
-        return (ServerConfiguration) config;
+        return (ServerExecutionConfiguration) config;
     }
 
 }
