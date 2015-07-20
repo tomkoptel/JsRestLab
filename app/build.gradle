@@ -57,5 +57,8 @@ dependencies {
         exclude group: 'commons-logging', module: 'commons-logging'
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
+    testCompile 'org.robolectric:shadows-httpclient:3.0-rc3'
+    testCompile 'com.squareup.okhttp:mockwebserver:2.1.0'
+    testCompile 'com.squareup.okhttp:okhttp-urlconnection:2.1.0'
 
 }
